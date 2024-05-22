@@ -5,6 +5,27 @@ Por el momento, nos encontramos definiendo objetivos y dando forma a la idea que
 
 ### Consideraciones para el desarrollo✍️
 
+#### ¿Como levanto y pruebo el proyecto?
+
+Antes que nada, hay que crearse un entorno virtual
+
+``` bash
+    # Crea el entorno virtual
+    python -m venv nombre_del_entorno_virtual
+
+    # Después hay que activarlo
+    nombre_del_entorno_virtual/Scripts/activate 
+```
+Después hay que instalar todas las dependencias del proyecto que estan debidamente indicadas en el archivo *requirements.txt*, para instalarlas en nuestro entorno virtual hay que ejecutar e siguiente comando
+
+``` bash
+    pip install -r requirements.txt
+```
+
+
+
+#### Guía básica de como manejarnos con git y no desconocernos...
+
 Se organiza el trabajo en dos ramas principales:
 
 - **main**: Cualquier commit que se realice en esta rama debe estar preparado para subir a producción. 
@@ -27,8 +48,15 @@ Veamos con un ejemplo como sería el flujo normal de trabajo. Supongamos que que
     # Ahora creamos la rama donde vamos a desarrollar la nueva funcionalidad estando ubicados en development
     git checkout -b feature/nueva-funcionalidad
 ```
+Una vez realizado esto, ya estaremos ubicados en nuestra nueva rama y podremos comenzar con el desarrollo de la nueva característica.
 
-Una vez realizado esto, ya estaremos ubicados en nuestra nueva rama y podremos comenzar con el desarrollo de la nueva catacterística.
+Para subir cambios en la rama donde se esta desarrollando la nueva funcionalidad, no es mas que seguir el bien conocido add, commit y push 
+
+``` bash
+    git add .
+    git commit -m "Descripción del cambio a subir"
+    git push origin feature/nueva-funcionalidad
+```
 
 Bien, ahora supongamos que paso un tiempo, desarrollamos nuestra nueva funcionalidad y ya esta finalizada. Ahora lo que queremos es subirla a development. ¿Como logramos esto sin caer en el problema de lidiar con mergeos interminables o peor aún, de sobrescribir trabajo de otro integrante del grupo?. La forma que más me ha funcionado en este sentido es siguiendo este flujo:
 
